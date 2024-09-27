@@ -1,4 +1,4 @@
-package com.Illusion0DEV.Domain.Interface;
+package com.Illusion0DEV.Domain.Interface.Service;
 
 import com.Illusion0DEV.Domain.Entities.tb_ath_authority;
 import com.Illusion0DEV.Domain.Entities.tb_lks_like;
