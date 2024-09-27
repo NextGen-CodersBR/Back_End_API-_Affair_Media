@@ -1,16 +1,13 @@
-package com.Illusion0DEV.Domain.Interface.Repository;
+package com.Illusion0DEV.Application.Interface;
 
 import com.Illusion0DEV.Domain.Entities.tb_lks_like;
 
 import jakarta.persistence.EntityManager;
 
 import org.hibernate.Session;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public class like_repository {
+public class app_like_interface {
 
     @Autowired
     EntityManager entity_manager;

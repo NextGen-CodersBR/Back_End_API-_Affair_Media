@@ -1,4 +1,4 @@
-package com.Illusion0DEV.Domain.Interface.Repository;
+package com.Illusion0DEV.Application.Interface;
 
 import com.Illusion0DEV.Domain.Entities.tb_pht_photo;
 
@@ -7,13 +7,11 @@ import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.UUID;
 
-@Repository
-public class photo_repository {
+public class app_photo_interface {
 
     @Autowired
     EntityManager entity_manager;
