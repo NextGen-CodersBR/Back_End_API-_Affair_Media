@@ -16,6 +16,6 @@ public class match_service {
 
     @Transactional
     public void add(tb_mtc_match match){
-        match_repository.add(match);
+        match_repository.add_match(match);
     }
 }

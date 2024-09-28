@@ -1,6 +1,7 @@
 package com.Illusion0DEV.Domain.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 import lombok.Data;

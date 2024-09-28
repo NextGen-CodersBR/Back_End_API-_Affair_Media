@@ -14,11 +14,11 @@ import java.util.List;
 public class interest_service {
 
     @Autowired
-    interest_repository interest_repository;
+    private interest_repository interest_repository;
 
     @Transactional
-    public List<tb_int_interest> find(String interestTags){
-        return interest_repository.find(interestTags);
+    public List<tb_int_interest> find(String interest_tags){
+        return interest_repository.find(interest_tags);
     }
 
     @Transactional
@@ -28,6 +28,6 @@ public class interest_service {
 
     @Transactional
     public List<String> get_interest_list_from_string(String interest){
-        return get_interest_list_from_string(interest);
+        return interest_repository.get_interest_list_from_string(interest);
     }
 }

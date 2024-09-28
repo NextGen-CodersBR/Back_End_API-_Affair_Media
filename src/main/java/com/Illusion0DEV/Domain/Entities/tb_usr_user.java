@@ -1,6 +1,9 @@
 package com.Illusion0DEV.Domain.Entities;
 
+import com.Illusion0DEV.Domain.Entities_Role.tb_rol_role;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -89,6 +92,9 @@ public class tb_usr_user {
     @OneToMany(mappedBy = "lks_user")
     public List<tb_lks_like> usr_like;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    public List<tb_rol_role > usr_role;
+
     @ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
@@ -168,6 +174,9 @@ public class tb_usr_user {
     public List<tb_lks_like> get_usr_like(){
         return usr_like;
     }
+    public List<tb_rol_role> get_usr_role(){
+        return usr_role;
+    }
     public List<tb_int_interest> get_usr_interest(){
         return usr_interest;
     }
@@ -235,6 +244,9 @@ public class tb_usr_user {
     }
     public void set_usr_like(List<tb_lks_like> usr_like){
         this.usr_like = usr_like;
+    }
+    public void set_usr_role(List<tb_rol_role> usr_role){
+        this.usr_role = usr_role;
     }
     public void set_usr_interest(List<tb_int_interest> usr_interest){
         this.usr_interest = usr_interest;

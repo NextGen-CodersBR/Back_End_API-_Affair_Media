@@ -4,6 +4,7 @@ import com.Illusion0DEV.Domain.Entities.tb_pht_photo;
 import com.Illusion0DEV.Domain.Interface.Repository.photo_repository;
 
 import jakarta.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,12 +21,12 @@ public class photo_service {
     }
 
     @Transactional
-    public void add(tb_pht_photo photo){
-        photo_repository.add(photo);
+    public void add_photo(tb_pht_photo photo){
+        photo_repository.add_photo(photo);
     }
 
     @Transactional
-    public void delete(UUID id){
-        photo_repository.delete(id);
+    public void delete_photo(UUID id){
+        photo_repository.delete_photo(id);
     }
 }

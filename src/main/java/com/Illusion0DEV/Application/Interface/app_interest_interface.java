@@ -5,6 +5,7 @@ import com.Illusion0DEV.Domain.Entities.tb_int_interest;
 import jakarta.persistence.EntityManager;
 
 import org.hibernate.Session;
+
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,11 +17,11 @@ public class app_interest_interface {
     @Autowired
     private EntityManager entity_manager;
 
-    public List<tb_int_interest> find(String interestTags){
+    public List<tb_int_interest> find(String interest_tags){
         Session session = entity_manager.unwrap(Session.class);
 
-        Query query = session.createQuery("from Interest where name in :tags");
-        query.setParameterList("tags",get_interest_list_from_string(interestTags));
+        Query query = session.createQuery("from tb_int_interest where int_name in :tags");
+        query.setParameterList("tags",get_interest_list_from_string(interest_tags));
 
         return query.getResultList();
     }
@@ -29,12 +30,12 @@ public class app_interest_interface {
 
         Session session = entity_manager.unwrap(Session.class);
 
-        Query query = session.createQuery("from Interest ");
+        Query query = session.createQuery("from tb_int_interest ");
 
         return query.getResultList();
     }
 
-    private List<String> get_interest_list_from_string(String interest){
+    public List<String> get_interest_list_from_string(String interest){
         String[] str = interest.split(",");
         List<String> interest_list = new ArrayList<>();
         for(var s : str){

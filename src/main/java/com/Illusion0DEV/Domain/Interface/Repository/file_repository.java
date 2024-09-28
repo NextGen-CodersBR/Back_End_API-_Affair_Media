@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 public class file_repository {
 
     @Autowired
-    private ServletContext servlet_context;
+    private ServletContext servletContext;
 
     List<String> contentTypes = Arrays.asList("image/png", "image/jpeg", "image/gif","image/jpg");
 
@@ -26,7 +27,7 @@ public class file_repository {
             throw new Exception("File isn't an image");
         }
 
-        String folder = servlet_context.getRealPath("/") +"/Upload/image/";
+        String folder = servletContext.getRealPath("/") +"/Upload/image/";
         byte[] bytes = file.getBytes();
         Path path = Paths.get(folder +file.getOriginalFilename());
         Files.write(path,bytes);
@@ -38,7 +39,7 @@ public class file_repository {
             throw new Exception("File isn't an image");
         }
 
-        String filePath = servlet_context.getRealPath("/") + pathStr;
+        String filePath = servletContext.getRealPath("/") + pathStr;
         byte[] bytes = file.getBytes();
         Path path = Paths.get(filePath);
         Files.write(path,bytes);

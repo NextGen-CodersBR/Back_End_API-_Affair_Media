@@ -1,19 +1,25 @@
 package com.Illusion0DEV.Application.Interface;
 
 import com.Illusion0DEV.Domain.Entities.tb_mtc_match;
+import com.Illusion0DEV.Domain.Interface.Repository.match_repository;
 
-import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-public class app_match_interface {
+@Repository
+public class app_match_interface{
 
     @Autowired
-    EntityManager entity_manager;
+    match_repository match_repository;
 
-    public void add(tb_mtc_match match){
-        Session session=entity_manager.unwrap(Session.class);
-        session.saveOrUpdate(match);
+    @Transactional
+    public void add_match(tb_mtc_match match){
+        match_repository.add_match(match);
+    }
+
+    public void remove_match(tb_mtc_match match){
+        match_repository.remove_match(match);
     }
 }
